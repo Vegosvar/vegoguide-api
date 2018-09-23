@@ -3,31 +3,68 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 export default new Schema({
-  url: {
-    type: String,
+  address: {
+    type: [
+      {
+        city: {
+          type: String
+        },
+        street: {
+          type: String
+        },
+        postcode: {
+          type: String
+        },
+        location: [
+          {
+            type: {
+              type: String,
+              enum: ['Point'],
+              default: 'Point'
+            },
+            coordinates: {
+              type: [Number],
+              required: true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  business: {
+    type: Schema.Types.ObjectId,
+    ref: 'business'
+  },
+  categories: {
+    type: [Schema.Types.ObjectId],
+    ref: 'categories',
     required: true
+  },
+  comments: {
+    type: [Schema.Types.ObjectId],
+    ref: 'comments'
+  },
+  cover: {
+    type: Schema.Types.ObjectId,
+    ref: 'images',
+    required: true
+  },
+  images: {
+    type: [Schema.Types.ObjectId],
+    ref: 'images'
   },
   label: {
     type: String,
     required: true
   },
-  cover: {
-    type: Schema.Types.ObjectId,
-    ref: 'images'
+  rating: {
+    type: Number
   },
-  categories: {
-    type: [Schema.Types.ObjectId],
-    ref: 'categories'
+  ratings: {
+    type: Number
   },
-  address: 'Kaponjargatan 4 A, Göteborg, Sverige',
-  images: {
-    type: [Schema.Types.ObjectId],
-    ref: 'images'
-  },
-  rating: 4.51,
-  ratings: 1031,
-  comments: {
-    type: [Schema.Types.ObjectId],
-    ref: 'comments'
+  url: {
+    type: String,
+    required: true
   }
 });

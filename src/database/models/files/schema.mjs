@@ -15,11 +15,8 @@ export default new Schema({
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document' // .docx
     ]
   },
-  absolutePath: {
-    type: String,
-    required: true
-  },
-  relativePath: {
+  path: {
+    // relative path
     type: String,
     required: true
   }

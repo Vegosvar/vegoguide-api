@@ -8,7 +8,7 @@ import config from '../config';
 const app = express();
 app.use(cors());
 
-return database({ config }).then(db => {
+database({ config }).then(db => {
   // Configuration for routes
   const options = {
     app,

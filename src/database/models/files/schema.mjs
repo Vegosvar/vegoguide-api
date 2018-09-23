@@ -9,8 +9,8 @@ export default new Schema({
     type: String,
     enum: [
       'application/pdf',
-      'application/msword',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      'application/msword', // .doc
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document' // .docx
     ]
   },
   absolutePath: {

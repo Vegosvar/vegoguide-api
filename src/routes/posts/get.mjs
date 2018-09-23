@@ -1,19 +1,29 @@
-import sampleData from "./sample-data";
 export default ({ app, database, helpers, prefix }) => {
   app.get(`${prefix}/posts`, (req, res) => {
+    const params = helpers.parseQuery(req.query);
 
-    const { query = {} } = helpers.parseQuery(req.query);
-
-    return res.json({
-      success: true,
-      data: sampleData.filter(post => !query.url || query.url.$in.indexOf(post.url) !== -1)
-    });
+    return database
+      .model('posts')
+      .find(params)
+      .then((data = []) =>
+        res.json({
+          success: true,
+          data
+        })
+      );
   });
 
-    res.json({
-      success: true,
-      data: sampleData.find(post => post.url === req.params.url)
-    });
   app.get(`${prefix}/posts/:url`, (req, res) => {
+    const params = helpers.parseQuery(req.query);
+
+    return database
+      .model('posts')
+      .find(params)
+      .then((data = []) =>
+        res.json({
+          success: true,
+          data
+        })
+      );
   });
 };

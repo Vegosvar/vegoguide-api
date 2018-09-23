@@ -1,5 +1,6 @@
-import { Schema } from 'mongoose';
-import FileSchema from '../files/schema';
+import mongoose from 'mongoose';
+
+const { Schema } = mongoose;
 
 export default new Schema({
   title: {

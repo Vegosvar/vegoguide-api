@@ -34,7 +34,7 @@ export default new Schema(
     },
     business: {
       type: Schema.Types.ObjectId,
-      ref: 'business'
+      ref: 'businesses'
     },
     categories: {
       type: [Schema.Types.ObjectId],

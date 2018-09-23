@@ -5,11 +5,17 @@ const { Schema } = mongoose;
 export default new Schema(
   {
     comment: {
-      type: String
+      type: String,
+      required: true
+    },
+    post: {
+      type: Schema.Types.ObjectId,
+      ref: 'posts'
     },
     user: {
       type: [Schema.Types.ObjectId],
-      ref: 'users'
+      ref: 'users',
+      required: true
     }
   },
   {

@@ -4,3 +4,5 @@ export { default as files } from './files';
 export { default as images } from './images';
 export { default as posts } from './posts';
 export { default as ratings } from './ratings';
+export { default as roles } from './roles';
+export { default as users } from './users';

@@ -1,8 +1,8 @@
-export default ({ app, database, helpers, prefix }) => {
+export default ({ app, db, helpers, prefix }) => {
   app.get(`${prefix}/posts`, (req, res) => {
     const params = helpers.parseQuery(req.query);
 
-    return database
+    return db
       .model('posts')
       .find(params)
       .then((data = []) =>
@@ -16,7 +16,7 @@ export default ({ app, database, helpers, prefix }) => {
   app.get(`${prefix}/posts/:url`, (req, res) => {
     const params = helpers.parseQuery(req.query);
 
-    return database
+    return db
       .model('posts')
       .find(params)
       .then((data = []) =>

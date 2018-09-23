@@ -2,35 +2,35 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
+const AddressSchema = {
+  city: {
+    type: String
+  },
+  street: {
+    type: String
+  },
+  postcode: {
+    type: String
+  },
+  location: [
+    {
+      type: {
+        type: String,
+        enum: ['Point'],
+        default: 'Point'
+      },
+      coordinates: {
+        type: [Number],
+        required: true
+      }
+    }
+  ]
+};
+
 export default new Schema(
   {
     address: {
-      type: [
-        {
-          city: {
-            type: String
-          },
-          street: {
-            type: String
-          },
-          postcode: {
-            type: String
-          },
-          location: [
-            {
-              type: {
-                type: String,
-                enum: ['Point'],
-                default: 'Point'
-              },
-              coordinates: {
-                type: [Number],
-                required: true
-              }
-            }
-          ]
-        }
-      ]
+      type: AddressSchema
     },
     business: {
       type: Schema.Types.ObjectId,

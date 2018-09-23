@@ -10,5 +10,10 @@ export default ({ config }) => {
     models[key]({ config, mongoose });
   });
 
-  return mongoose.connect(uri);
+  return mongoose.connect(
+    uri,
+    {
+      useNewUrlParser: true
+    }
+  );
 };

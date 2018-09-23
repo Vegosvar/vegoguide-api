@@ -2,7 +2,7 @@ import sampleData from "./sample-data";
 
 export default ({ app, config, helpers }) => {
   app.get(`/${config.version}/posts`, (req, res) => {
-    const { query } = helpers.parseQuery(req.query);
+    const { query = {} } = helpers.parseQuery(req.query);
 
     return res.json({
       success: true,

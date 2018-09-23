@@ -1,0 +1,19 @@
+{
+  "extends": ["airbnb-base", "prettier"],
+  "plugins": ["jest"],
+  "parser": "babel-eslint",
+  "env": {
+    "node": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "quotes": [2, "single"]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  }
+}

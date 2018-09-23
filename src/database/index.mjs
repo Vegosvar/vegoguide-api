@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import models from './models';
+import * as models from './models';
 
 export default ({ config }) => {
   const { host, name } = config.database;

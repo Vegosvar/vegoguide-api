@@ -1,18 +1,25 @@
-import express from "express";
-import cors from "cors";
-import * as helpers from "./helpers";
-import * as routes from "./routes";
-import config from "../config.mjs";
+import express from 'express';
+import cors from 'cors';
+import database from './database';
+import * as helpers from './helpers';
+import * as routes from './routes';
+import config from '../config';
 
 const app = express();
 app.use(cors());
 
-// Initialize routes
-const prefix = `/${config.api.version}`;
-Object.keys(routes).forEach(key =>
-  routes[key]({ app, config, helpers, prefix })
-);
+// Configuration for routes
+const options = {
+  app,
+  config,
+  helpers,
+  database: database({ config }),
+  prefix: `/${config.api.version}`
+};
 
-app.listen(config.port, () =>
-  console.log(`Example app listening on port ${config.port}!`)
+// Initialize routes
+Object.keys(routes).forEach(key => routes[key](options));
+
+app.listen(config.api.port, () =>
+  console.log(`Example app listening on port ${config.api.port}!`)
 );

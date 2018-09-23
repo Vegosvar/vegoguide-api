@@ -7,20 +7,26 @@ export default new Schema({
     type: String,
     required: true
   },
-  sizes: [
-    FileSchema.discriminator('image', {
-      mimeType: {
-        type: String,
-        enum: ['image/jpeg', 'image/png']
-      },
-      height: {
-        type: Number,
-        required: true
-      },
-      width: {
-        type: Number,
-        required: true
+  sizes: {
+    type: [
+      {
+        height: {
+          type: Number,
+          required: true
+        },
+        mimeType: {
+          type: String,
+          enum: ['image/jpeg', 'image/png']
+        },
+        path: {
+          type: String,
+          required: true
+        },
+        width: {
+          type: Number,
+          required: true
+        }
       }
-    })
-  ]
+    ]
+  }
 });

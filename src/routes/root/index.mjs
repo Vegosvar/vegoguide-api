@@ -1,5 +1,5 @@
-export default ({ app, config, database }) => {
-  app.get("/", (req, res) =>
+export default ({ app, config, prefix }) => {
+  app.get(prefix, (req, res) =>
     res.json({
       success: true,
       data: {

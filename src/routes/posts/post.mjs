@@ -1,5 +1,5 @@
 export default ({ app, config }) => {
-  app.post(`/${config.version}/pages`, (req, res) =>
+  app.post(`/${config.version}/posts`, (req, res) =>
     res.json({
       success: true,
       data: req.body

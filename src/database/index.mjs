@@ -7,7 +7,10 @@ export default ({ config }) => {
 
   // Register models
   Object.keys(models).forEach(key => {
-    models[key]({ config, mongoose });
+    models[key]({
+      config,
+      mongoose
+    });
   });
 
   return mongoose.connect(

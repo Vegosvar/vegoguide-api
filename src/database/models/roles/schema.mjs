@@ -5,10 +5,13 @@ const { Schema } = mongoose;
 export default new Schema(
   {
     title: {
-      type: String
+      type: String,
+      required: true
     },
-    type: {
-      type: String
+    privileges: {
+      type: [Schema.Types.ObjectId],
+      ref: 'privileges',
+      required: true
     }
   },
   {

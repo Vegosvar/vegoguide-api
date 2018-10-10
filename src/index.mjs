@@ -21,7 +21,7 @@ database({ config }).then(db => {
   // Initialize routes
   Object.keys(routes).forEach(key => routes[key](options));
 
-  app.listen(config.api.port, () =>
+  app.listen(config.api.port, config.api.host, () =>
     console.log(`Example app listening on port ${config.api.port}!`)
   );
 });

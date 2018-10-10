@@ -3,9 +3,12 @@ import config from '../config';
 import database from './database';
 
 database({ config }).then(db => {
+  // Insert all the documents
   const insertions = Object.keys(sampleData).map(key => {
     const documents = sampleData[key];
-    const operations = documents.map(document => db.model(key).create(document));
+    const operations = documents.map(document =>
+      db.model(key).create(document)
+    );
 
     return Promise.all(operations);
   });

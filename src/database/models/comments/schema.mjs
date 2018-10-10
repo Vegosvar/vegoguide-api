@@ -10,7 +10,8 @@ export default new Schema(
     },
     post: {
       type: Schema.Types.ObjectId,
-      ref: 'posts'
+      ref: 'posts',
+      required: true
     },
     user: {
       type: [Schema.Types.ObjectId],

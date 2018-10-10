@@ -7,6 +7,7 @@ export default {
   },
   database: {
     host: 'localhost',
-    name: 'pwa'
+    name: 'pwa',
+    port: 27017
   }
 };

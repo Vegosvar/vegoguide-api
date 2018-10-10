@@ -4,10 +4,12 @@ const { Schema } = mongoose;
 
 const AddressSchema = {
   city: {
-    type: String
+    type: String,
+    required: true
   },
   street: {
-    type: String
+    type: String,
+    required: true
   },
   postcode: {
     type: String

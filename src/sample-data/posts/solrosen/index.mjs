@@ -1,5 +1,5 @@
 import categories from '../../categories';
-import image from './image';
+import images from '../../images';
 import { comments, objectId, ratings } from '../../generators';
 
 const id = objectId();
@@ -7,6 +7,7 @@ const ratingsDocuments = ratings(3, id);
 const ratingsSum = ratingsDocuments.reduce((sum, item) => sum + item.rating, 0);
 
 const postCategories = ['Svenskt', 'Husmanskost'];
+const image = images[1];
 
 export default {
   _id: id,

@@ -7,11 +7,6 @@ const ImageSizeSchema = {
     type: Number,
     required: true
   },
-  mimeType: {
-    type: String,
-    required: true,
-    enum: ['image/jpeg', 'image/png']
-  },
   // relative path
   path: {
     type: String,
@@ -29,10 +24,18 @@ export default new Schema(
       type: String,
       required: true
     },
-    sizes: {
-      thumbnail: ImageSizeSchema,
-      large: ImageSizeSchema,
-      original: ImageSizeSchema
+    mimeType: {
+      type: String,
+      required: true,
+      enum: ['image/jpeg', 'image/png']
+    },
+    thumbnail: {
+      type: ImageSizeSchema,
+      required: true
+    },
+    original: {
+      type: ImageSizeSchema,
+      required: true
     }
   },
   {

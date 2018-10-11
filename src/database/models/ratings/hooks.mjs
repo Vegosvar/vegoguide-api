@@ -27,7 +27,7 @@ export default ({ schema }) => {
           }
         }
       ])
-      .then(({ ratings, rating }) =>
+      .then(([{ ratings, rating }]) =>
         this.model('posts')
           .findOne({
             _id: ratingsDocument.post

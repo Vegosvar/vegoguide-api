@@ -1,6 +1,6 @@
-import objectId from './object-id';
-import { getRandomElementInArray } from '../helpers';
-import users from '../users';
+import { objectId } from './generators';
+import { getRandomElementInArray } from './helpers';
+import users from './users';
 
 const comments = [
   'Bad food, would not go back',

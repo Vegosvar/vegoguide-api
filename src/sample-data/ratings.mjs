@@ -1,5 +1,5 @@
-import objectId from './object-id';
-import { getRandomNumberInRange } from '../helpers';
+import { objectId } from './generators';
+import { getRandomNumberInRange } from './helpers';
 
 export default (count, postId) =>
   new Array(count).fill(0).map(() => ({

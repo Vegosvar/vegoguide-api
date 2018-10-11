@@ -5,15 +5,30 @@ import config from '../config';
 import database from './database';
 
 database({ config }).then(db => {
-  // Insert all the documents
-  const insertions = Object.keys(sampleData).map(key => {
-    const documents = sampleData[key];
-    const operations = documents.map(document =>
-      db.model(key).create(document)
-    );
+  const insertDocuments = (documents, model) =>
+    Promise.all(documents.map(document => db.model(model).create(document)));
 
-    return Promise.all(operations);
-  });
+  // Get all collections
+  const {
+    categories,
+    comments,
+    ratings,
+    roles,
+    images,
+    posts,
+    users
+  } = sampleData;
+
+  // Insert all the documents
+  const insertions = Promise.all([
+    insertDocuments(categories, 'categories'),
+    insertDocuments(roles, 'roles'),
+    insertDocuments(images, 'images'),
+    insertDocuments(users, 'users'),
+    insertDocuments(posts, 'posts'),
+    insertDocuments(posts.map(({ _id }) => comments(3, _id)), 'comments'),
+    insertDocuments(posts.map(({ _id }) => ratings(3, _id)), 'ratings')
+  ]);
 
   // Copy all the files
   const copy = fsExtra.copy(
@@ -22,7 +37,7 @@ database({ config }).then(db => {
   );
 
   // Wait until all operations are completed
-  return Promise.all(insertions, copy)
+  return Promise.all([insertions, copy])
     .then(() => {
       console.log('Done!');
     })

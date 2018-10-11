@@ -35,7 +35,7 @@ export default ({ schema }) => {
           .then(postDocument => {
             if (postDocument) {
               postDocument.ratings = ratings;
-              postDocument.rating = Math.floor(rating * 100) / 100;
+              postDocument.rating = Math.floor(rating * 100);
 
               return postDocument.save();
             }

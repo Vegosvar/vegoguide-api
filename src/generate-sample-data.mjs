@@ -19,16 +19,21 @@ database({ config }).then(db => {
     users
   } = sampleData;
 
-  // Insert all the documents
+  // Insert the documents
   const insertions = Promise.all([
     insertDocuments(categories, 'categories'),
-    insertDocuments(roles, 'roles'),
     insertDocuments(images, 'images'),
-    insertDocuments(users, 'users'),
     insertDocuments(posts, 'posts'),
-    insertDocuments(posts.map(({ _id }) => comments(3, _id)), 'comments'),
-    insertDocuments(posts.map(({ _id }) => ratings(3, _id)), 'ratings')
-  ]);
+    insertDocuments(roles, 'roles'),
+    insertDocuments(users, 'users')
+  ])
+    // Insert the rest of the documents with side effects in their life cycle hooks
+    .then(() =>
+      Promise.all([
+        insertDocuments(posts.map(({ _id }) => comments(3, _id)), 'comments'),
+        insertDocuments(posts.map(({ _id }) => ratings(3, _id)), 'ratings')
+      ])
+    );
 
   // Copy all the files
   const copy = fsExtra.copy(

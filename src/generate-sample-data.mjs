@@ -31,8 +31,8 @@ database({ config, helpers }).then(db => {
     // Insert the rest of the documents with side effects in their life cycle hooks
     .then(() =>
       Promise.all([
-        insertDocuments(posts.map(({ _id }) => comments(3, _id)), 'comments'),
-        insertDocuments(posts.map(({ _id }) => ratings(3, _id)), 'ratings')
+        insertDocuments(posts.map(({ _id }) => comments(helpers.getRandomNumberInRange(20, 50), _id)), 'comments'),
+        insertDocuments(posts.map(({ _id }) => ratings(helpers.getRandomNumberInRange(20, 50), _id)), 'ratings')
       ])
     );
 

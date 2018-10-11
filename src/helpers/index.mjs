@@ -6,3 +6,6 @@ export const parseQuery = query =>
     }),
     {}
   );
+
+export const getUrl = ({ host, path, port, protocol, version }) =>
+  `${protocol}://${host}${port ? `:${port}` : ''}/${version}/${path}`;

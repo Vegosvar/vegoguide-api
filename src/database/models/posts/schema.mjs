@@ -39,6 +39,7 @@ export default new Schema(
       ref: 'businesses'
     },
     categories: {
+      autopopulate: true,
       type: [Schema.Types.ObjectId],
       ref: 'categories',
       required: true
@@ -48,11 +49,13 @@ export default new Schema(
       ref: 'comments'
     },
     cover: {
+      autopopulate: true,
       type: Schema.Types.ObjectId,
       ref: 'images',
       required: true
     },
     images: {
+      autopopulate: true,
       type: [Schema.Types.ObjectId],
       ref: 'images'
     },

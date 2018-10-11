@@ -2,9 +2,10 @@ import fsExtra from 'fs-extra';
 import path from 'path';
 import * as sampleData from './sample-data';
 import config from '../config';
+import * as helpers from './helpers';
 import database from './database';
 
-database({ config }).then(db => {
+database({ config, helpers }).then(db => {
   const insertDocuments = (documents, model) =>
     Promise.all(documents.map(document => db.model(model).create(document)));
 

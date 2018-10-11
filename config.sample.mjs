@@ -2,6 +2,7 @@ export default {
   api: {
     name: 'pwa-server',
     host: 'localhost',
+    protocol: 'http',
     version: 1,
     port: 8080
   },

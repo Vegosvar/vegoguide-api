@@ -2,7 +2,7 @@ import fsExtra from 'fs-extra';
 import path from 'path';
 import * as sampleData from './sample-data';
 import config from '../config';
-import * as helpers from './helpers';
+import * as helpers from './sample-data/helpers';
 import database from './database';
 
 database({ config, helpers }).then(db => {

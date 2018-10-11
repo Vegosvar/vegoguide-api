@@ -1,29 +1,10 @@
-export default ({ app, db, helpers, prefix }) => {
-  app.get(`${prefix}/posts`, (req, res) => {
-    const params = helpers.parseQuery(req.query);
+import path from 'path';
 
-    return db
-      .model('posts')
-      .find(params)
-      .then((data = []) =>
-        res.json({
-          success: true,
-          data
-        })
-      );
-  });
+export default ({ app, prefix }) => {
+  app.get(`${prefix}/images/:image`, (req, res) => {
+    const { image } = req.params;
+    const imagePath = path.resolve(`public/images/${image}`);
 
-  app.get(`${prefix}/posts/:url`, (req, res) => {
-    const params = helpers.parseQuery(req.query);
-
-    return db
-      .model('posts')
-      .find(params)
-      .then((data = []) =>
-        res.json({
-          success: true,
-          data
-        })
-      );
+    return res.sendFile(imagePath);  
   });
 };

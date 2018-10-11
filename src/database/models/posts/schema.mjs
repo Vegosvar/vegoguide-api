@@ -44,10 +44,6 @@ export default new Schema(
       ref: 'categories',
       required: true
     },
-    comments: {
-      type: [Schema.Types.ObjectId],
-      ref: 'comments'
-    },
     cover: {
       autopopulate: true,
       type: Schema.Types.ObjectId,

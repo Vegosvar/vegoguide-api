@@ -8,7 +8,7 @@ const image = images[0]
 export default {
   _id: objectId(),
   url: 'korv-kiosken-i-majorna',
-  label: 'Korvkiosken i Majorna',
+  title: 'Korvkiosken i Majorna',
   address: {
     city: 'Göteborg',
     street: 'Mariagatan 6',

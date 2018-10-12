@@ -10,7 +10,7 @@ const image = images[1];
 export default {
   _id: id,
   url: 'solrosen',
-  label: 'Solrosen',
+  title: 'Solrosen',
   address: {
     city: 'Göteborg',
     street: 'Kaponjargatan 4A'

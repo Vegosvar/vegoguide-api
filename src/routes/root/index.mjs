@@ -1,10 +1,10 @@
-export default ({ app, config, prefix }) => {
-  app.get(prefix, (req, res) =>
+export default ({ app, config }) => {
+  app.get('/', (req, res) =>
     res.json({
       success: true,
       data: {
-        name: config.name,
-        version: config.version
+        name: config.api.name,
+        version: config.api.version
       }
     })
   );

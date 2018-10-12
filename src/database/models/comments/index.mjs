@@ -1,3 +1,7 @@
+import autopopulate from 'mongoose-autopopulate';
 import schema from './schema';
 
-export default ({ mongoose }) => mongoose.model('comments', schema);
+export default ({ mongoose }) => {
+  schema.plugin(autopopulate);
+  return mongoose.model('comments', schema);
+};

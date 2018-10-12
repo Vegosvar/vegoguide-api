@@ -14,6 +14,12 @@ export default new Schema(
       required: true
     },
     user: {
+      autopopulate: {
+        select: {
+          firstName: true,
+          lastName: true
+        }
+      },
       type: [Schema.Types.ObjectId],
       ref: 'users',
       required: true

@@ -55,7 +55,7 @@ export default new Schema(
       type: [Schema.Types.ObjectId],
       ref: 'images'
     },
-    label: {
+    title: {
       type: String,
       required: true
     },

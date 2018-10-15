@@ -8,20 +8,29 @@ import config from '../config';
 const app = express();
 app.use(cors());
 
-database({ config, helpers }).then(db => {
-  // Configuration for routes
-  const options = {
-    app,
-    config,
-    db,
-    helpers,
-    prefix: `/${config.api.version}`
-  };
+database({ config, helpers })
+  .then(db => {
+    const { host, port, protocol, version } = config.api;
 
-  // Initialize routes
-  Object.keys(routes).forEach(key => routes[key](options));
+    // Configuration for routes
+    const options = {
+      app,
+      config,
+      db,
+      helpers,
+      // The prefix before each route
+      prefix: `/${version}`
+    };
 
-  app.listen(config.api.port, config.api.host, () =>
-    console.log(`Example app listening on port ${config.api.port}!`)
-  );
-});
+    // Initialize routes
+    Object.keys(routes).forEach(key => routes[key](options));
+
+    app.listen(port, host, () => {
+      const url = `${protocol}://${host}:${port}`;
+
+      console.log(`App listening on ${url}`);
+    });
+  })
+  .catch(error => {
+    console.error(error);
+  });

@@ -3,7 +3,7 @@ import images from '../../images';
 import { objectId } from '../../generators';
 
 const postCategories = ['Kiosk', 'Snabbmat', 'Grill'];
-const image = images[0]
+const image = images[0];
 
 export default {
   _id: objectId(),

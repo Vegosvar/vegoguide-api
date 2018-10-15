@@ -16,6 +16,9 @@ export default {
   },
   cover: image,
   images: [image],
+  location: {
+    coordinates: [11.920477, 57.6862985]
+  },
   categories: categories.filter(category =>
     postCategories.includes(category.title)
   )

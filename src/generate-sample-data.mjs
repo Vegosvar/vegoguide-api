@@ -56,8 +56,10 @@ database({ config, helpers }).then(db => {
   return Promise.all([insertions, copy])
     .then(() => {
       console.log('Done!');
+      process.exit();
     })
     .catch(error => {
       console.error(error);
+      process.exit();
     });
 });

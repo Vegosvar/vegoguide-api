@@ -1,9 +1,9 @@
 import fsExtra from 'fs-extra';
 import path from 'path';
-import * as sampleData from './sample-data';
 import config from '../config';
-import * as helpers from './sample-data/helpers';
 import database from './database';
+import * as sampleData from './sample-data';
+import * as helpers from './sample-data/helpers';
 
 database({ config, helpers }).then(db => {
   const insertDocuments = (documents, model) =>

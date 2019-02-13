@@ -1,10 +1,20 @@
 export default ({ app, db, helpers, prefix }) => {
   app.get(`${prefix}/posts`, (req, res) => {
-    const params = helpers.parseQuery(req.query);
+    const {
+      query,
+      limit = 200,
+      skip = 0,
+      sort = {
+        _id: 1
+      }
+    } = helpers.parseQuery(req.query);
 
     return db
       .model('posts')
-      .find(params)
+      .find(query)
+      .skip(skip)
+      .limit(limit)
+      .sort(sort)
       .then((data = []) =>
         res.json({
           success: true,

@@ -1,6 +1,6 @@
 import { objectId } from './generators';
 
-const categories = ['Svenskt', 'Husmanskost', 'Snabbmat', 'Kiosk', 'Grill'];
+const categories = ['Swedish', 'Swedish husmanskost', 'Fast food', 'Kiosk', 'Grill'];
 
 export default categories.map(category => ({
   _id: objectId(),

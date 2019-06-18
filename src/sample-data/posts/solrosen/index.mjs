@@ -4,7 +4,7 @@ import { objectId } from '../../generators';
 
 const id = objectId();
 
-const postCategories = ['Svenskt', 'Husmanskost'];
+const postCategories = ['Swedish', 'Swedish husmanskost'];
 const image = images[1];
 
 export default {

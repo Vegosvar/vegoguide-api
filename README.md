@@ -14,7 +14,7 @@ $ npm install
 $ cp config.sample.mjs config.mjs
 ```
 
-Edit `config.json` with a text editor and configure the properties
+Edit `config.mjs` with a text editor and configure the properties
 
 ## Genererate sample data
 

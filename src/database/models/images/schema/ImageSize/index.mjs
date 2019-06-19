@@ -27,6 +27,7 @@ export default ({ config, helpers }) => {
   schema.virtual('url').get(function getUrl() {
     return helpers.getUrl({
       ...config.api,
+      ...config.api.public,
       path: this.path
     });
   });

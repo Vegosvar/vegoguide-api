@@ -6,6 +6,7 @@ export default {
     },
     name: 'pwa-server',
     host: 'localhost',
+    prefix: 'api',
     protocol: 'http',
     version: 1,
     port: 8080

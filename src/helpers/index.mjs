@@ -13,5 +13,5 @@ export const parseQuery = query =>
     return newParsedQuery;
   }, {});
 
-export const getUrl = ({ host, path, port, protocol, version }) =>
-  `${protocol}://${host}${port ? `:${port}` : ''}/${version}/${path}`;
+export const getUrl = ({ host, path, prefix, port, protocol, version }) =>
+  `${protocol}://${host}${port ? `:${port}` : ''}${prefix ? `/${prefix}` : ''}/${version}/${path}`;

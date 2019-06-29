@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 import * as models from './models';
 
 export default ({ config, ...params }) => {
-  const { host, name, port } = config.database;
-  const uri = `mongodb://${host}:${port}/${name}`;
+  const { host, name, port, username, password } = config.database;
+  const uri = `mongodb://${username}:${password}@${host}:${port}/${name}`;
 
   // Register models
   Object.keys(models).forEach(key => {

@@ -17,10 +17,12 @@ export default params => {
         required: true,
         enum: ['image/jpeg', 'image/png']
       },
+      // Width: 500px
       thumbnail: {
         type: imageSizeSchema,
         required: true
       },
+      // Width: 1024px
       large: {
         type: imageSizeSchema,
         required: true

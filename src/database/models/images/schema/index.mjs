@@ -21,6 +21,10 @@ export default params => {
         type: imageSizeSchema,
         required: true
       },
+      large: {
+        type: imageSizeSchema,
+        required: true
+      },
       original: {
         type: imageSizeSchema,
         required: true

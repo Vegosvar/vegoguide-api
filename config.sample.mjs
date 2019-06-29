@@ -13,7 +13,9 @@ export default {
   },
   database: {
     host: 'localhost',
-    name: 'pwa',
-    port: 27017
+    name: 'vegoguide',
+    port: 27017,
+    username: 'vegoguide',
+    password: 'password'
   }
 };

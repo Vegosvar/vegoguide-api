@@ -7,7 +7,12 @@ export default [
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/korvkiosken_thumbnail.jpg',
-      height: 574,
+      height: 281,
+      width: 500
+    },
+    large: {
+      path: 'images/korvkiosken_large.jpg',
+      height: 575,
       width: 1024
     },
     original: {
@@ -22,6 +27,11 @@ export default [
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_thumbnail.jpg',
+      height: 333,
+      width: 500
+    },
+    large: {
+      path: 'images/solrosen_large.jpg',
       height: 682,
       width: 1024
     },

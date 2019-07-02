@@ -15,6 +15,7 @@ database({ config, helpers }).then(db => {
     comments,
     ratings,
     roles,
+    i18n,
     images,
     posts,
     users
@@ -22,6 +23,7 @@ database({ config, helpers }).then(db => {
 
   // Insert the documents
   const insertions = Promise.all([
+    insertDocuments(i18n, 'i18n'),
     insertDocuments(categories, 'categories'),
     insertDocuments(images, 'images'),
     insertDocuments(posts, 'posts'),

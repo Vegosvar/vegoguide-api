@@ -16,6 +16,11 @@ export default new Schema(
       type: String,
       enum: ['sv'],
       required: true
+    },
+    namespace: {
+      type: String,
+      required: true
+    },
   },
   {
     collection: 'i18n',

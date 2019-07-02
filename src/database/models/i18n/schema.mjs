@@ -14,8 +14,8 @@ export default new Schema(
     },
     language: {
       type: String,
-      enum: ['sv']
-    }
+      enum: ['sv'],
+      required: true
   },
   {
     collection: 'i18n',

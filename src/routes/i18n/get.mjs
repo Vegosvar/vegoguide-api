@@ -13,16 +13,19 @@ export default ({ app, db, prefix }) => {
         {
           $group: {
             _id: '$language',
-            documents: {
-              $push: '$$ROOT'
+            messages: {
+              $push: {
+                message: '$message',
+                translation: '$translation'
+              }
             }
           }
         },
         {
-          $replaceRoot: {
-            newRoot: {
-              [language]: '$documents'
-            }
+          $project: {
+            _id: 0,
+            language: '$_id',
+            messages: '$messages'
           }
         }
       ])

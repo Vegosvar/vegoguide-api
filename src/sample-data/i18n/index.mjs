@@ -1,23 +1,27 @@
-export default[
+export default [
   {
     message: 'Swedish',
     translation: 'Svenskt',
     language: 'sv'
-  }, {
-    message : 'Swedish husmanskost',
+  },
+  {
+    message: 'Swedish husmanskost',
     translation: 'Husmanskost',
     language: 'sv'
-  }, {
-    message : 'Fast food',
+  },
+  {
+    message: 'Fast food',
     translation: 'Snabbmat',
     language: 'sv'
-  }, {
-    message : 'Kiosk',
+  },
+  {
+    message: 'Kiosk',
     translation: 'Kiosk',
     language: 'sv'
-  }, {
-    message : 'Grill',
+  },
+  {
+    message: 'Grill',
     translation: 'Grill',
     language: 'sv'
   }
-]
+];

@@ -11,8 +11,8 @@ export default ({ app, db, prefix }) => {
           }
         },
         {
-          $group : {
-            _id : '$language',
+          $group: {
+            _id: '$language',
             documents: {
               $push: '$$ROOT'
             }
@@ -33,4 +33,4 @@ export default ({ app, db, prefix }) => {
         })
       );
   });
-}
+};

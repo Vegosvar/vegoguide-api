@@ -14,7 +14,7 @@ export default new Schema(
     },
     language: {
       type: String,
-      enum: ['sv'],
+      enum: ['en', 'sv'],
       required: true
     },
     namespace: {

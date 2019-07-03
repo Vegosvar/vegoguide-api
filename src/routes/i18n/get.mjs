@@ -26,7 +26,7 @@ export default ({ app, db, prefix }) => {
       );
   });
 
-  app.get(`${prefix}/i18n/:language`, (req, res) => {
+  app.get(`${prefix}/i18n/:language/`, (req, res) => {
     const { language } = req.params;
 
     return db
@@ -40,6 +40,45 @@ export default ({ app, db, prefix }) => {
         {
           $group: {
             _id: '$language',
+            namespaces: {
+              $addToSet: '$namespace'
+            }
+          }
+        },
+        {
+          $project: {
+            _id: 0,
+            language: '$_id',
+            namespaces: '$namespaces'
+          }
+        }
+      ])
+      .then((data = []) =>
+        res.json({
+          success: true,
+          data
+        })
+      );
+  });
+
+  app.get(`${prefix}/i18n/:language/:namespace`, (req, res) => {
+    const { language, namespace } = req.params;
+
+    return db
+      .model('i18n')
+      .aggregate([
+        {
+          $match: {
+            language,
+            namespace
+          }
+        },
+        {
+          $group: {
+            _id: {
+              language: '$language',
+              namespace: '$namespace'
+            },
             messages: {
               $push: {
                 message: '$message',
@@ -51,7 +90,8 @@ export default ({ app, db, prefix }) => {
         {
           $project: {
             _id: 0,
-            language: '$_id',
+            language: '$_id.language',
+            namespace: '$_id.namespace',
             messages: '$messages'
           }
         }

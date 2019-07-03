@@ -3,7 +3,7 @@ import * as models from './models';
 
 export default ({ config, ...params }) => {
   const { host, name, port, username, password } = config.database;
-  const uri = `mongodb://${username}:${password}@${host}:${port}/${name}`;
+  const uri = `mongodb://${username ? `${username}` : ''}${password ? `:${password}@` : ''}${host}:${port}/${name}`;
 
   // Register models
   Object.keys(models).forEach(key => {

@@ -1,12 +1,12 @@
 export default [
   {
-    message: 'Swedish',
+    message: 'Swedish cuisine',
     translation: 'Svenskt',
     language: 'sv',
     namespace: 'postCategories'
   },
   {
-    message: 'Swedish husmanskost',
+    message: 'Swedish traditional cuisine',
     translation: 'Husmanskost',
     language: 'sv',
     namespace: 'postCategories'
@@ -26,6 +26,30 @@ export default [
   {
     message: 'Grill',
     translation: 'Grill',
+    language: 'sv',
+    namespace: 'postCategories'
+  },
+  {
+    message: 'Bar',
+    translation: 'Bar',
+    language: 'sv',
+    namespace: 'postCategories'
+  },
+  {
+    message: 'Pub',
+    translation: 'Pub',
+    language: 'sv',
+    namespace: 'postCategories'
+  },
+  {
+    message: 'Burgers',
+    translation: 'Hamburgare',
+    language: 'sv',
+    namespace: 'postCategories'
+  },
+  {
+    message: 'Fine dining',
+    translation: 'Finmiddag',
     language: 'sv',
     namespace: 'postCategories'
   }

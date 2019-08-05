@@ -1,11 +1,11 @@
-import categories from '../../categories';
 import images from '../../images';
 import { objectId } from '../../generators';
+import { getPostCategory } from '../../helpers';
 
 const id = objectId();
 
-const postCategories = ['Swedish', 'Swedish husmanskost'];
 const image = images[1];
+const postCategories = ['Swedish cuisine', 'Swedish traditional cuisine'];
 
 export default {
   _id: id,
@@ -20,7 +20,5 @@ export default {
   location: {
     coordinates: [11.9548101, 57.6989777]
   },
-  categories: categories.filter(category =>
-    postCategories.includes(category.title)
-  )
+  categories: postCategories.map(getPostCategory)
 };

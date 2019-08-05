@@ -1,8 +1,9 @@
-import categories from '../../categories';
 import images from '../../images';
 import { objectId } from '../../generators';
+import { getPostCategory } from '../../helpers';
 
 const postCategories = ['Kiosk', 'Fast food', 'Grill'];
+
 const image = images[0];
 
 export default {
@@ -19,7 +20,5 @@ export default {
   location: {
     coordinates: [11.920477, 57.6862985]
   },
-  categories: categories.filter(category =>
-    postCategories.includes(category.title)
-  )
+  categories: postCategories.map(getPostCategory)
 };

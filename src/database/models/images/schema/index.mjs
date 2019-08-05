@@ -9,8 +9,24 @@ export default params => {
   return new Schema(
     {
       title: {
-        type: String,
-        required: true
+        en: {
+          type: Schema.Types.ObjectId,
+          ref: 'i18n',
+        },
+        sv: {
+          type: Schema.Types.ObjectId,
+          ref: 'i18n',
+        },
+      },
+      description: {
+        en: {
+          type: Schema.Types.ObjectId,
+          ref: 'i18n',
+        },
+        sv: {
+          type: Schema.Types.ObjectId,
+          ref: 'i18n',
+        },
       },
       mimeType: {
         type: String,

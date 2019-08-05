@@ -5,7 +5,14 @@ const { Schema } = mongoose;
 export default new Schema(
   {
     title: {
-      type: String
+      en: {
+        type: Schema.Types.ObjectId,
+        ref: 'i18n',
+      },
+      sv: {
+        type: Schema.Types.ObjectId,
+        ref: 'i18n',
+      },
     }
   },
   {

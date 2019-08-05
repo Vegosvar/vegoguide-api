@@ -10,5 +10,5 @@ export default [
     translation: 'Svenska',
     language: 'sv',
     namespace: 'languages'
-  },
+  }
 ];

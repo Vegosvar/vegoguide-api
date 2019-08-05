@@ -1,4 +1,5 @@
+import blackbird from './blackbird';
 import korvkiosken from './korvkiosken';
 import solrosen from './solrosen';
 
-export default [korvkiosken, solrosen];
+export default [blackbird, korvkiosken, solrosen];

@@ -4,7 +4,6 @@ import { getPostCategory } from '../../helpers';
 
 const id = objectId();
 
-const image = images[1];
 const postCategories = ['Swedish cuisine', 'Swedish traditional cuisine'];
 
 export default {
@@ -15,8 +14,8 @@ export default {
     city: 'Göteborg',
     street: 'Kaponjargatan 4A'
   },
-  cover: image,
-  images: [image],
+  cover: images[1],
+  images: [images[1], images[2]],
   location: {
     coordinates: [11.9548101, 57.6989777]
   },

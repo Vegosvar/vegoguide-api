@@ -67,7 +67,9 @@ export default new Schema(
     },
     url: {
       type: String,
-      required: true
+      required: true,
+      index: true,
+      unique: true
     }
   },
   {

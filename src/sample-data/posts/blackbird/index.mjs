@@ -13,7 +13,7 @@ export default {
     street: 'Stigbergsliden 3',
     postcode: 41463,
     location: {
-      coordinates: [11.920477, 57.6862985]
+      coordinates: [11.9358273, 57.6994605]
     }
   },
   cover: images[3],

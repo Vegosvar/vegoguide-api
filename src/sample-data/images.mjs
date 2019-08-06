@@ -1,10 +1,19 @@
 import { objectId } from './generators';
 import { getTranslationMessages, getUrlFromPath } from './helpers';
 
+const getTitle = title =>
+  getTranslationMessages(title).reduce(
+    (messages, message) => ({
+      ...messages,
+      [message.language]: message._id
+    }),
+    {}
+  );
+
 export default [
   {
     _id: objectId(),
-    title: getTranslationMessages('The hot dog stand'),
+    title: getTitle('The hot dog stand'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/korvkiosken_thumbnail.jpg',
@@ -27,7 +36,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslationMessages('Solrosen\'s outdoor sitting area'),
+    title: getTitle('Solrosen\'s outdoor sitting area'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_thumbnail.jpg',
@@ -50,7 +59,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslationMessages('Auburgine stew'),
+    title: getTitle('Auburgine stew'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_2_thumbnail.jpg',
@@ -73,7 +82,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslationMessages('Interior'),
+    title: getTitle('Interior'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/blackbird_thumbnail.jpg',
@@ -96,7 +105,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslationMessages('Tasty burger with potato sides'),
+    title: getTitle('Tasty burger with potato sides'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/blackbird_2_thumbnail.jpg',

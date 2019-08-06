@@ -11,12 +11,12 @@ export default {
   address: {
     city: 'Göteborg',
     street: 'Stigbergsliden 3',
-    postcode: 41463
+    postcode: 41463,
+    location: {
+      coordinates: [11.920477, 57.6862985]
+    }
   },
   cover: images[3],
   images: [images[3], images[4]],
-  location: {
-    coordinates: [11.920477, 57.6862985]
-  },
   categories: postCategories.map(getPostCategory)
 };

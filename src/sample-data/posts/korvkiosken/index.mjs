@@ -13,12 +13,12 @@ export default {
   address: {
     city: 'Göteborg',
     street: 'Mariagatan 6',
-    postcode: 41471
+    postcode: 41471,
+    location: {
+      coordinates: [11.920477, 57.6862985]
+    }
   },
   cover: image,
   images: [image],
-  location: {
-    coordinates: [11.920477, 57.6862985]
-  },
   categories: postCategories.map(getPostCategory)
 };

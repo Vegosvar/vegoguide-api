@@ -39,19 +39,16 @@ export default new Schema(
       ref: 'businesses'
     },
     categories: {
-      autopopulate: true,
       type: [Schema.Types.ObjectId],
       ref: 'categories',
       required: true
     },
     cover: {
-      autopopulate: true,
       type: Schema.Types.ObjectId,
       ref: 'images',
       required: true
     },
     images: {
-      autopopulate: true,
       type: [Schema.Types.ObjectId],
       ref: 'images'
     },

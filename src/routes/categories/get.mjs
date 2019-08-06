@@ -22,32 +22,72 @@ export default ({ app, config, db, helpers, prefix }) => {
       .model('posts')
       .aggregate([
         {
+          // Lookup categories
           $lookup: {
             from: 'categories',
-            localField: 'categories',
-            foreignField: '_id',
-            as: 'categories'
+            as: 'categories',
+            let: { categories: '$categories' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $in: ['$_id', '$$categories']
+                  }
+                }
+              },
+              {
+                $group: {
+                  _id: {
+                    _id: '$_id',
+                    title: `$title.${language}`
+                  }
+                }
+              },
+              {
+                $replaceRoot: {
+                  newRoot: '$_id'
+                }
+              },
+              // Lookup translation for each category's title
+              {
+                $lookup: {
+                  from: 'i18n',
+                  as: 'title',
+                  let: { title: '$title' },
+                  pipeline: [
+                    {
+                      $match: {
+                        $expr: {
+                          $eq: ['$_id', '$$title']
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              // Convert resulting array to an object
+              {
+                $replaceRoot: {
+                  newRoot: {
+                    $mergeObjects: [
+                      '$$ROOT',
+                      {
+                        title: {
+                          $ifNull: [
+                            { $arrayElemAt: ['$title.translation', 0] },
+                            null
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
           }
         },
         {
           $unwind: '$categories'
-        },
-        {
-          $group: {
-            _id: '$categories',
-            sum: {
-              $sum: 1
-            }
-          }
-        },
-        {
-          $replaceRoot: {
-            newRoot: {
-              _id: '$_id._id',
-              title: `$_id.title.${language}`,
-              count: '$sum'
-            }
-          }
         },
         {
           $match: query
@@ -64,8 +104,8 @@ export default ({ app, config, db, helpers, prefix }) => {
         {
           $replaceRoot: {
             newRoot: {
-              _id: '$_id',
-              title: '$title'
+              _id: '$categories._id',
+              title: '$categories.title'
             }
           }
         }

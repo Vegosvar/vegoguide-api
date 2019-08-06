@@ -1,10 +1,10 @@
 import { objectId } from './generators';
-import { getTranslations, getUrlFromPath } from './helpers';
+import { getTranslationMessages, getUrlFromPath } from './helpers';
 
 export default [
   {
     _id: objectId(),
-    title: getTranslations('The hot dog stand'),
+    title: getTranslationMessages('The hot dog stand'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/korvkiosken_thumbnail.jpg',
@@ -27,7 +27,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslations('Solrosen\'s outdoor sitting area'),
+    title: getTranslationMessages('Solrosen\'s outdoor sitting area'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_thumbnail.jpg',
@@ -50,7 +50,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslations('Auburgine stew'),
+    title: getTranslationMessages('Auburgine stew'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_2_thumbnail.jpg',
@@ -73,7 +73,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslations('Interior'),
+    title: getTranslationMessages('Interior'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/blackbird_thumbnail.jpg',
@@ -96,7 +96,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: getTranslations('Tasty burger with potato sides'),
+    title: getTranslationMessages('Tasty burger with potato sides'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/blackbird_2_thumbnail.jpg',

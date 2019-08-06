@@ -1,10 +1,10 @@
 import { objectId } from './generators';
-import { getUrlFromPath } from './helpers';
+import { getTranslations, getUrlFromPath } from './helpers';
 
 export default [
   {
     _id: objectId(),
-    title: 'Korvkiosken',
+    title: getTranslations('The hot dog stand'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/korvkiosken_thumbnail.jpg',
@@ -27,7 +27,7 @@ export default [
   },
   {
     _id: objectId(),
-    title: 'Solrosens uteservering',
+    title: getTranslations('Solrosen\'s outdoor sitting area'),
     mimeType: 'image/jpeg',
     thumbnail: {
       path: 'images/solrosen_thumbnail.jpg',
